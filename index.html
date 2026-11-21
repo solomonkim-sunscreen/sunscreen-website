@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunscreen — Robots for the hardest manual work</title>
+<meta name="description" content="Sunscreen builds robots for warehouses, factories, data centers, and energy facilities.">
+<meta property="og:title" content="Sunscreen — Robots for the hardest manual work">
+<meta property="og:description" content="Sunscreen builds robots for warehouses, factories, data centers, and energy facilities.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e0f10'/%3E%3Ctext x='32' y='44' font-family='Helvetica, Arial, sans-serif' font-size='36' fill='%23e8e6e1' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0e0f10;
+    --surface: #131415;
+    --text: #e8e6e1;
+    --muted: #9a978f;
+    --faint: #6b6862;
+    --line: rgba(232, 230, 225, 0.10);
+    --line-strong: rgba(232, 230, 225, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--text); text-decoration: none; }
+  a:hover { color: #ffffff; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* Nav */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(14, 15, 16, 0.86);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .wordmark { font-size: 19px; font-weight: 600; letter-spacing: 0.01em; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero { padding: 128px 0 112px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(232,230,225,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,230,225,0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 28px;
+  }
+  h1 {
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.08; font-weight: 500; letter-spacing: -0.02em;
+    max-width: 16ch; margin-bottom: 28px;
+  }
+  .hero p { font-size: 19px; color: var(--muted); max-width: 62ch; font-weight: 400; }
+
+  /* Sections */
+  section { padding: 96px 0; border-top: 1px solid var(--line); }
+  .label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.15; font-weight: 500; letter-spacing: -0.015em;
+    margin-bottom: 24px; max-width: 22ch;
+  }
+  .lead { color: var(--muted); max-width: 68ch; font-size: 18px; }
+
+  /* Pillars */
+  .pillars { margin-top: 64px; border-top: 1px solid var(--line); }
+  .pillar {
+    display: grid; grid-template-columns: 72px 1fr; gap: 24px;
+    padding: 36px 0; border-bottom: 1px solid var(--line);
+  }
+  .pillar .num { font-size: 14px; color: var(--faint); letter-spacing: 0.08em; padding-top: 4px; }
+  .pillar h3 { font-size: 21px; font-weight: 550; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .pillar p { color: var(--muted); max-width: 64ch; }
+  @media (max-width: 640px) { .pillar { grid-template-columns: 48px 1fr; gap: 16px; } }
+
+  /* Difference */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+  @media (max-width: 760px) { .grid-3 { grid-template-columns: 1fr; gap: 32px; } }
+  .cell { border-top: 1px solid var(--line-strong); padding-top: 24px; }
+  .cell h3 { font-size: 19px; font-weight: 550; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .cell p { color: var(--muted); font-size: 16px; }
+
+  /* Who we serve */
+  .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 48px; margin-top: 56px; }
+  @media (max-width: 640px) { .grid-4 { grid-template-columns: 1fr; } }
+  .serve { border-top: 1px solid var(--line-strong); padding-top: 24px; }
+  .serve h3 { font-size: 19px; font-weight: 550; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .serve p { color: var(--muted); font-size: 16px; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 72px 0 48px; }
+  footer .wordmark { font-size: 26px; margin-bottom: 12px; }
+  footer .tagline { color: var(--muted); margin-bottom: 24px; }
+  footer .contact { font-size: 15px; }
+  footer .contact a { color: var(--muted); }
+  footer .contact a:hover { color: var(--text); }
+  footer .copy { margin-top: 48px; font-size: 13px; color: var(--faint); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#">Sunscreen</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#difference">The Difference</a>
+      <a href="#serve">Who We Serve</a>
+      <a href="mailto:contact@sunscreen.energy">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Robotics for the physical world</p>
+      <h1>Robots for the hardest manual work.</h1>
+      <p>Warehouses, factories, and energy facilities run on manual work that is hard, repetitive, and often hazardous. Sunscreen builds robots that bring human-level judgment to that work — learning from every hour.</p>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="label">About Sunscreen</p>
+      <h2>Strengthening the backbone of America</h2>
+      <p class="lead">We build robots for the places that keep America running. Our robots take on real work today — and every hour of operation becomes training data for the next generation of autonomy.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="num">01</div>
+          <div>
+            <h3>A sense of touch</h3>
+            <p>Proprietary force and tactile sensing gives our robots the feedback that contact-rich work demands — the foundation for the first behavior model with a sense of touch.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="num">02</div>
+          <div>
+            <h3>Learns from real work</h3>
+            <p>Every hour of operation becomes training data for the next generation of autonomy.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="num">03</div>
+          <div>
+            <h3>Open by design</h3>
+            <p>We open-source our platforms, starting with MABEL, our mobile bimanual robot, and the Frame v1 leg.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="difference">
+    <div class="wrap">
+      <p class="label">The Difference</p>
+      <div class="grid-3">
+        <div class="cell">
+          <h3>Handles the hazardous work</h3>
+          <p>The robots take on the hard, repetitive, hazardous work people shouldn&rsquo;t have to do.</p>
+        </div>
+        <div class="cell">
+          <h3>Learns on the job</h3>
+          <p>Every hour of operation improves the fleet.</p>
+        </div>
+        <div class="cell">
+          <h3>Built for the real floor</h3>
+          <p>Designed for the warehouses, factories, and facilities where the work actually happens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="serve">
+    <div class="wrap">
+      <p class="label">Who We Serve</p>
+      <div class="grid-4">
+        <div class="serve">
+          <h3>Warehouses &amp; 3PLs</h3>
+          <p>Moving, sorting, and handling goods.</p>
+        </div>
+        <div class="serve">
+          <h3>Factories &amp; manufacturing</h3>
+          <p>Machine tending and repetitive production work.</p>
+        </div>
+        <div class="serve">
+          <h3>Data centers</h3>
+          <p>Physical operations in facilities that never stop.</p>
+        </div>
+        <div class="serve">
+          <h3>Energy facilities</h3>
+          <p>Inspection and hazardous-zone work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">Sunscreen</div>
+    <p class="tagline">Robots for the hardest manual work.</p>
+    <p class="contact"><a href="mailto:contact@sunscreen.energy">contact@sunscreen.energy</a></p>
+    <p class="copy">&copy;2026 Sunscreen. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
